@@ -17,6 +17,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -25,16 +26,14 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 
-public class SmithingPanel extends JPanel implements ActionListener{
+public class SmithingPanel extends JFrame implements ActionListener{
     private Shop shopscreen;
     private JPanel smithingPanel;
     private JPanel personalPanel;
-    private TitledBorder personalTitle;
-    private JPanel leftPanel;
-    private JLabel leftLabel;
+    private TitledBorder personalTitle;    
+    private JLabel leftupLabel;
     private JPanel bottomLeft;
-    private JPanel rightPanel;
-    private JLabel rightLabel;
+    private JPanel rightPanel;    
     private JLabel name;
     private JLabel level;
     private JLabel reputation;
@@ -65,7 +64,7 @@ public class SmithingPanel extends JPanel implements ActionListener{
         
         
         Icon Pic = new ImageIcon( getClass().getResource( "MIA_Blacksmith.jpg" ) );
-        leftLabel = new JLabel (Pic,JLabel.CENTER);
+        leftupLabel = new JLabel (Pic,JLabel.CENTER);
         //leftLabel.add(leftLabel);
         
         personalPanel = new JPanel(new GridLayout(5,1));  
@@ -99,12 +98,17 @@ public class SmithingPanel extends JPanel implements ActionListener{
         workPanel.add(store);
         
         
-        Icon Pic2 = new ImageIcon( getClass().getResource( "role_1.png" ) );
-        rightLabel = new JLabel (Pic2);
+       // Icon Pic2 = new ImageIcon( getClass().getResource( "role_1.png" ) );
+        rightPanel = new JPanel();
+        
+        
+        
         //rightPanel.add(rightLabel);
         
-        String s = "This is test sample"; 
+        String s = "Welcome to Blacksmith!"; 
         text = new TextArea(s, 10, 20, TextArea.SCROLLBARS_VERTICAL_ONLY);
+        text.setFont(new Font("Arial", Font.PLAIN,20)); 
+        text.setSize(300,500);
         bottomLeft.add(text);
         
         
@@ -112,11 +116,11 @@ public class SmithingPanel extends JPanel implements ActionListener{
         //add(leftPanel, BorderLayout.WEST);
         //add(rightPanel, BorderLayout.CENTER);
         
-        JSplitPane top = new JSplitPane(JSplitPane.VERTICAL_SPLIT,leftLabel,bottomLeft);
+        JSplitPane top = new JSplitPane(JSplitPane.VERTICAL_SPLIT,leftupLabel,bottomLeft);
         top.setOneTouchExpandable(true);
-        top.setDividerLocation(300);
+        top.setDividerLocation(200);
         
-        JSplitPane bottom = new JSplitPane(JSplitPane.VERTICAL_SPLIT,workPanel,rightLabel);
+        JSplitPane bottom = new JSplitPane(JSplitPane.VERTICAL_SPLIT,workPanel,rightPanel);
         top.setOneTouchExpandable(true);
         top.setDividerLocation(200);
         
@@ -133,7 +137,7 @@ public class SmithingPanel extends JPanel implements ActionListener{
         if (e.getSource() == blacksmithing){
             
         }else if(e.getSource()==shop){
-            rightLabel=shopscreen.Shop();
+            rightPanel=shopscreen.Shop();
         }else if(e.getSource()==store){
             
         }

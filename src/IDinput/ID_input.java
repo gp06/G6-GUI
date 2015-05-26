@@ -22,7 +22,9 @@ import javax.swing.JLabel;
 
 
 
-import main.JTabbedPaneFrame;
+
+
+import blacksmith.smithing.SmithingPanel;
 
 public class ID_input extends JFrame implements ActionListener{
     
@@ -106,10 +108,10 @@ public class ID_input extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == skipButton){   
-            JTabbedPaneFrame tabbedPaneFrame = new JTabbedPaneFrame();  
-            tabbedPaneFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-            tabbedPaneFrame.setSize( 1280, 1080 ); // set frame size
-            tabbedPaneFrame.setVisible( true ); // display frame
+            SmithingPanel smithing = new SmithingPanel ();       
+            smithing.setSize(1500,900);
+            smithing.setVisible(true); 
+            smithing.setLocationRelativeTo(null);
             CloseFrame();
         }
         
