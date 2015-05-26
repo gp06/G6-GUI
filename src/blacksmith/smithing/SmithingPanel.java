@@ -29,6 +29,8 @@ import javax.swing.border.TitledBorder;
 public class SmithingPanel extends JFrame implements ActionListener{
     private Shop shopscreen;
     private JPanel smithingPanel;
+    private JPanel leftcenterPanel;
+    private JLabel iconLabel;
     private JPanel personalPanel;
     private TitledBorder personalTitle;    
     private JLabel leftupLabel;
@@ -57,7 +59,7 @@ public class SmithingPanel extends JFrame implements ActionListener{
         smithingPanel = new JPanel();
         smithingPanel.setBounds(0, 0, 1280, 1080);
         
-        bottomLeft = new JPanel(new GridLayout(2,1)); 
+        bottomLeft = new JPanel(new GridLayout(3,1)); 
         
         rightPanel = new JPanel();
         rightPanel.setBackground(Color.WHITE);
@@ -67,12 +69,21 @@ public class SmithingPanel extends JFrame implements ActionListener{
         leftupLabel = new JLabel (Pic,JLabel.CENTER);
         //leftLabel.add(leftLabel);
         
+        
+       
+        
         personalPanel = new JPanel(new GridLayout(5,1));  
+        
+        Icon Pic2 = new ImageIcon( getClass().getResource( "Teemo.jpg" ) );
+        iconLabel = new JLabel (Pic2,JLabel.CENTER);
+        bottomLeft.add(iconLabel);
         //personalPanel.setLocation(100, 100);
         Border blackLine = BorderFactory.createLineBorder(Color.black);  
         Font font = new Font(Font.MONOSPACED, Font.ITALIC, 18);        
-        personalTitle = BorderFactory.createTitledBorder(blackLine,"Role Date", 0 ,0 , font, Color.BLUE);
+        personalTitle = BorderFactory.createTitledBorder(blackLine,"Role Data", 0 ,0 , font, Color.BLUE);
         personalPanel.setBorder(personalTitle);
+        
+        
         
         name = new JLabel("Name:");      
         personalPanel.add(name);
