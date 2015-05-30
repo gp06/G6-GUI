@@ -107,8 +107,9 @@ public class ID_input extends JFrame implements ActionListener{
 
     
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == skipButton){   
-            SmithingPanel smithing = new SmithingPanel ();       
+        if(e.getSource() == skipButton || e.getSource() == IDfield){
+            SmithingPanel smithing = new SmithingPanel ();   
+            smithing.setID(IDfield.getText());          
             smithing.setSize(1500,900);
             smithing.setVisible(true); 
             smithing.setLocationRelativeTo(null);
