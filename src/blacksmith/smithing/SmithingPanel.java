@@ -31,8 +31,8 @@ import javax.swing.border.TitledBorder;
 public class SmithingPanel extends JFrame implements ActionListener{
     private Shop shopscreen;
     private Stock stockscreen;
-    private Smithing smithingscrean;
-    
+    private Smithing smithingscreen;
+    private Direction directionscreen;
     private JPanel smithingPanel;
     
     private JLabel iconLabel;
@@ -53,41 +53,19 @@ public class SmithingPanel extends JFrame implements ActionListener{
     private JButton shop;
     private JButton stock;
     
-    
     public String ID;
-    
-    
-    
-    
-    
-    
-
-
-
 
     public void setID(String iD) {
         ID = iD;
-        
-        
     }
+    
     public String getID(){
-        
         return ID;
     }
     
-    
-
-
-
-
-
-
     public SmithingPanel() {
-        
-        
         super();
-        this.setLayout(new BorderLayout());        
-    //    shopscreen = new Shop();
+        this.setLayout(new BorderLayout());
         
         smithingPanel = new JPanel();
         smithingPanel.setBounds(0, 0, 1280, 1080);
@@ -97,26 +75,18 @@ public class SmithingPanel extends JFrame implements ActionListener{
         rightPanel = new JPanel();
         rightPanel.setBackground(Color.WHITE);
         
-        
         Icon Pic = new ImageIcon( getClass().getResource( "MIA_Blacksmith.jpg" ) );
         leftupLabel = new JLabel (Pic,JLabel.CENTER);
-        //leftLabel.add(leftLabel);
-        
-        
-       
         
         personalPanel = new JPanel(new GridLayout(5,1));  
         
         Icon Pic2 = new ImageIcon( getClass().getResource( "Teemo.jpg" ) );
         iconLabel = new JLabel (Pic2,JLabel.CENTER);
         bottomLeft.add(iconLabel);
-        //personalPanel.setLocation(100, 100);
         Border blackLine = BorderFactory.createLineBorder(Color.black);  
         Font font = new Font(Font.MONOSPACED, Font.ITALIC, 18);        
         personalTitle = BorderFactory.createTitledBorder(blackLine,"Role Data", 0 ,0 , font, Color.BLUE);
         personalPanel.setBorder(personalTitle);
-        
-        
         
         name = new JLabel(); 
         name.setText("NAME: ");
@@ -131,11 +101,6 @@ public class SmithingPanel extends JFrame implements ActionListener{
         personalPanel.add(money);
         bottomLeft.add(personalPanel);
         
-
-        
-        
-        
-        
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
         
@@ -143,22 +108,21 @@ public class SmithingPanel extends JFrame implements ActionListener{
         CardLayout cardlayout = new CardLayout();
         rightPanel.setLayout(cardlayout);
         
-        
         shopscreen = new Shop();
         stockscreen = new Stock();
-        smithingscrean = new Smithing();
-        rightPanel.add(smithingscrean,"1");
+        smithingscreen = new Smithing();
+        directionscreen = new Direction();
+        rightPanel.add(smithingscreen,"1");
         rightPanel.add(shopscreen ,"2");
         rightPanel.add(stockscreen ,"3");
         rightPanel.add(new JLabel("Card 4") ,"4");
         rightPanel.add(new JLabel("Card 5") ,"5");
-        rightPanel.add(new JLabel("Card 6"), "6");
+        rightPanel.add(directionscreen, "6");
         
         JButton smithing = new JButton("Smithing");
         smithing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
               cardlayout.show(rightPanel,"1");
-              
             }
           });
         JButton shop = new JButton ("Shop");
@@ -201,7 +165,6 @@ public class SmithingPanel extends JFrame implements ActionListener{
         buttonPanel.add(upgrade);
         buttonPanel.add(direction);
         buttonPanel.add(rightPanel);
-                
         
         String s = "Welcome to Blacksmith!"; 
         text = new TextArea(s, 10, 20, TextArea.SCROLLBARS_VERTICAL_ONLY);
@@ -217,26 +180,11 @@ public class SmithingPanel extends JFrame implements ActionListener{
         split.setOneTouchExpandable(true);
         split.setDividerLocation(400);
         
-        
-        
         add(split);
         
     }
     
-
-    
-
-
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == blacksmithing){
-            
-        }else if(e.getSource()==shop){
-            Icon Pic2 = new ImageIcon( getClass().getResource( "Teemo.jpg" ) );
-            iconLabel = new JLabel (Pic2,JLabel.CENTER);
-            rightPanel.add(iconLabel);            
-            repaint();
-        }else if(e.getSource()==stock){
-            
-        }
+        
     }
 }
