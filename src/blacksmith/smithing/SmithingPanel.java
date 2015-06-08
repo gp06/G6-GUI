@@ -33,6 +33,7 @@ public class SmithingPanel extends JFrame implements ActionListener{
     private Stock stockscreen;
     private Smithing smithingscreen;
     private Direction directionscreen;
+    private Upgrade  upgradescreen;
     private JPanel smithingPanel;
     
     private JLabel iconLabel;
@@ -112,11 +113,12 @@ public class SmithingPanel extends JFrame implements ActionListener{
         stockscreen = new Stock();
         smithingscreen = new Smithing();
         directionscreen = new Direction();
+        upgradescreen = new Upgrade();
         rightPanel.add(smithingscreen,"1");
         rightPanel.add(shopscreen ,"2");
         rightPanel.add(stockscreen ,"3");
         rightPanel.add(new JLabel("Card 4") ,"4");
-        rightPanel.add(new JLabel("Card 5") ,"5");
+        rightPanel.add(upgradescreen,"5");
         rightPanel.add(directionscreen, "6");
         
         JButton smithing = new JButton("Smithing");
